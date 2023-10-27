@@ -1,0 +1,17 @@
+name: abutil
+description: Abandoft commonly used functions collection, simplify the software development process.
+version: 0.1.2
+homepage: https://github.com/abandoft/abutil
+
+environment:
+  sdk: '>=2.17.0 <4.0.0'
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0

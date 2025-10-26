@@ -1,7 +1,11 @@
-## 0.1.1
+## 0.2.1
 
-* begin
+* add isOHOS()
 
 ## 0.1.2
 
 * bug fix
+
+## 0.1.1
+
+* begin

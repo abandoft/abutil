@@ -8,9 +8,9 @@ bool haveUpdate(int versionCode, int latestVersion) {
 
 bool mustUpdate(var latestUpdateTime, String updateTime) {
   if (latestUpdateTime.isNotEmpty) {
-    if (DateTime.tryParse(latestUpdateTime)!
-            .difference(DateTime.tryParse(updateTime)!)
-            .inHours >
+    if (DateTime.tryParse(
+          latestUpdateTime,
+        )!.difference(DateTime.tryParse(updateTime)!).inHours >
         24 * 365 / 3) {
       return true;
     } else {

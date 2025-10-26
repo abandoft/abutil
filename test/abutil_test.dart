@@ -16,4 +16,3 @@ void main() {
     expect(calculator.addOne(0), 1);
   });
 }
-

@@ -1,6 +1,6 @@
 name: abutil
 description: Abandoft commonly used functions collection, simplify the software development process.
-version: 0.1.2
+version: 0.2.1
 homepage: https://github.com/abandoft/abutil
 
 environment:

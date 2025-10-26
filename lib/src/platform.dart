@@ -47,3 +47,7 @@ isMacOS() {
 isLinux() {
   return isWeb() ? false : Platform.isLinux;
 }
+
+isOHOS() {
+  return Platform.operatingSystem == 'ohos';
+}

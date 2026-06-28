@@ -1,16 +1,32 @@
 import 'package:flutter/widgets.dart';
 
-/// Wrap your root App widget in this widget and call [Reboot.begin] to restart your app.
+/// Wraps an app subtree and allows rebuilding it with a new key.
 class Reboot extends StatefulWidget {
+  /// Creates a restartable app subtree.
+  const Reboot({super.key, required this.child});
+
+  /// The subtree to rebuild when [begin] or [maybeBegin] is called.
   final Widget child;
 
-  Reboot({Key? key, required this.child}) : super(key: key);
-
   @override
-  _RebootState createState() => _RebootState();
+  State<Reboot> createState() => _RebootState();
 
-  static begin(BuildContext context) {
-    context.findAncestorStateOfType<_RebootState>()!.rebootApp();
+  /// Rebuilds the nearest [Reboot] subtree above [context].
+  static void begin(BuildContext context) {
+    final bool restarted = maybeBegin(context);
+    if (!restarted) {
+      throw FlutterError(
+        'Reboot.begin was called with a context that does not contain a Reboot '
+        'ancestor. Wrap the root widget with Reboot before calling begin.',
+      );
+    }
+  }
+
+  /// Rebuilds the nearest [Reboot] subtree above [context], if one exists.
+  static bool maybeBegin(BuildContext context) {
+    final _RebootState? state = context.findAncestorStateOfType<_RebootState>();
+    state?.rebootApp();
+    return state != null;
   }
 }
 
